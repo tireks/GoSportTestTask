@@ -3,11 +3,16 @@ package com.tirexmurina.testapp.presentation
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.tirexmurina.testapp.databinding.ItemTestBinding
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
+import com.tirexmurina.testapp.DishTestEntity
+import com.tirexmurina.testapp.R
+import com.tirexmurina.testapp.databinding.ItemMainListBinding
 
 class MainListAdapter() : RecyclerView.Adapter<MainItemViewHolder>(){
 
-    var contents: List<Int> = emptyList()
+    var contents: List<DishTestEntity> = emptyList()
         set(value){
             field = value
             notifyDataSetChanged()
@@ -15,7 +20,7 @@ class MainListAdapter() : RecyclerView.Adapter<MainItemViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemTestBinding.inflate(inflater, parent, false)
+        val binding = ItemMainListBinding.inflate(inflater, parent, false)
         return MainItemViewHolder(binding)
     }
 
@@ -27,11 +32,19 @@ class MainListAdapter() : RecyclerView.Adapter<MainItemViewHolder>(){
 }
 
 class MainItemViewHolder(
-    private val binding: ItemTestBinding
+    private val binding: ItemMainListBinding
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(
-        content: Int
+        content: DishTestEntity
     ){
-        binding.itemContent.text = content.toString()
+        binding.itemTitle.text = content.title
+        binding.itemDescription.text = content.description
+        binding.priceLabelText.text = "от ${content.price} р"
+        Glide.with(binding.itemImage.context)
+            .load(content.image)
+            .apply(RequestOptions().transform(RoundedCorners(16)))
+            .placeholder(R.drawable.ic_placeholder)
+            .error(R.drawable.ic_placeholder)
+            .into(binding.itemImage)
     }
 }

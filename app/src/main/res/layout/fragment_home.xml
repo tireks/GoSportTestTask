@@ -13,23 +13,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/testTopBarr"
+        <Spinner
+            android:id="@+id/citySpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/standard_margin"
-            android:text="TopBarr"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="40dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginStart="@dimen/standard_margin"
+            />
+
+        <ImageButton
+            app:layout_constraintTop_toTopOf="@id/citySpinner"
+            app:layout_constraintBottom_toBottomOf="@id/citySpinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:backgroundTint="@color/alphaZero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_qr_code"
+            />
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/coordinator"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/testTopBarr"
-            android:layout_marginTop="@dimen/standard_margin"
+            app:layout_constraintTop_toBottomOf="@id/citySpinner"
+            android:layout_marginTop="@dimen/big_margin"
             >
 
             <com.google.android.material.appbar.AppBarLayout
@@ -49,16 +59,17 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <ImageView
-                            android:id="@+id/image"
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/bannerList"
                             android:layout_width="match_parent"
-                            android:layout_height="375dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/eq_it_na_pizza_margherita_sep2005_sml"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginStart="@dimen/standard_margin"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:listitem="@layout/item_banner_list"
+                            tools:itemCount="1"
+                            />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                     
                 </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -69,15 +80,16 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
                     android:orientation="horizontal"> <!--<androidx.appcompat.widget.SearchView android:id="@+id/search_ciew" android:layout_width="match_parent" android:layout_height="50dp" android:layout_marginStart="24dp" android:layout_marginEnd="24dp" android:background="#fff" app:iconifiedByDefault="false" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:queryHint="" />-->
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/categoriesList"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="BottomSasaki"
-                        android:textColor="@color/black"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:layout_marginStart="@dimen/standard_margin"
+                        tools:listitem="@layout/item_category_inactive"
+                        tools:itemCount="1"
+                        />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.appbar.AppBarLayout>
 
@@ -92,8 +104,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:listitem="@layout/item_test" />
+                    tools:listitem="@layout/item_main_list" />
             </androidx.constraintlayout.widget.ConstraintLayout> <!--<TextView android:id="@+id/top_placeholder" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent" android:text="sasaki" app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="@dimen/standard_margin" />-->
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
