@@ -1,10 +1,9 @@
-package com.tirexmurina.testapp.presentation
+package com.tirexmurina.testapp.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.tirexmurina.testapp.databinding.ItemBannerListBinding
-import com.tirexmurina.testapp.databinding.ItemTestBinding
 
 class BannerListAdapter () : RecyclerView.Adapter<BannerItemViewHolder>(){
 

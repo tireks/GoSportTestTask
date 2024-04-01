@@ -1,4 +1,4 @@
-package com.tirexmurina.testapp.presentation
+package com.tirexmurina.testapp.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
