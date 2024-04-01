@@ -75,7 +75,7 @@
         app:layout_constraintBottom_toBottomOf="@id/priceLabelView"
         app:layout_constraintEnd_toEndOf="@id/priceLabelView"
         android:layout_marginEnd="10dp"
-        tools:text = "от 345 р"
+        android:text = "от 345 р"
         android:textColor="@color/text_light_pink"
         android:textSize="13sp"
 

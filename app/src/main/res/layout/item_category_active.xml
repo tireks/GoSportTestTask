@@ -15,18 +15,35 @@
 
     >
 
-    <!--Text View over Card View-->
-    <TextView
-        android:id="@+id/textview"
-        android:layout_gravity="center"
-        android:textSize="13sp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Категория"
-        android:textColor="@color/text_pink"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textview"
+            android:layout_gravity="center"
+            android:textSize="13sp"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Категория"
+            android:textColor="@color/text_pink"
+            />
+        <ImageView
+            android:id="@+id/cross"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            card_view:layout_constraintTop_toTopOf="@id/textview"
+            card_view:layout_constraintBottom_toBottomOf="@id/textview"
+            android:src="@drawable/ic_close"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toEndOf="@id/textview"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        />
+    <!--Text View over Card View-->
+
 
 </androidx.cardview.widget.CardView>

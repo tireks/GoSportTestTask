@@ -1,6 +1,5 @@
 package com.tirexmurina.testapp.domain.repository
 
-import com.tirexmurina.testapp.domain.entity.Category
 import com.tirexmurina.testapp.domain.entity.Dish
 
 interface DishRepository {
