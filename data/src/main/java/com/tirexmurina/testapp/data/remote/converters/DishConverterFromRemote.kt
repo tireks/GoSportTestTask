@@ -7,21 +7,17 @@ import com.tirexmurina.testapp.domain.entity.Category
 import com.tirexmurina.testapp.domain.entity.Dish
 
 class DishConverterFromRemote {
-    fun convert(fromDish : DishModelRemote, categoryList: List<Category>) : Dish? {
-        val categoryId = categoryList.find { it.name == fromDish.strCategory }?.id ?: return null
-        with(fromDish){
-            return Dish(
+    fun convert(from : DishModelRemote) : Dish =
+        with(from){
+            Dish(
                 id = idMeal,
                 title = strMeal,
                 image = strMealThumb,
                 description = strInstructions,
-                category = Category(
-                    id = categoryId,
-                    name = fromDish.strCategory
-                )
+                category = strCategory
             )
-        }
     }
+}
 
 
 
@@ -37,4 +33,17 @@ class DishConverterFromRemote {
                 )
             )
         }*/
-}
+
+    /*val categoryId = categoryList.find { it.name == fromDish.strCategory }?.id ?: return null
+        with(fromDish){
+            return Dish(
+                id = idMeal,
+                title = strMeal,
+                image = strMealThumb,
+                description = strInstructions,
+                category = Category(
+                    id = categoryId,
+                    name = fromDish.strCategory
+                )
+            )
+        }*/

@@ -11,11 +11,7 @@ import com.tirexmurina.testapp.data.local.models.CategoryModelLocal
 interface CategoryDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertCategory(category: CategoryModelLocal)
-
-    @Transaction
-    @Query("SELECT * FROM categories WHERE id = :id")
-    suspend fun getCategoryWithDishes(categoryId : String): List<CategoryWithDishes>
+    suspend fun insertCategory(list: List<CategoryModelLocal>)
 
     @Query("SELECT * FROM categories")
     suspend fun getAllCategories(): List<CategoryModelLocal>

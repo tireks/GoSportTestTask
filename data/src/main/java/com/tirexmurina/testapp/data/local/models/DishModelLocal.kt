@@ -1,6 +1,5 @@
 package com.tirexmurina.testapp.data.local.models
 
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -10,5 +9,5 @@ data class DishModelLocal(
     val title: String,
     val description: String,
     val image: String,
-    val categoryId : String
+    val category : String
 )

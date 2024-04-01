@@ -8,7 +8,7 @@ class DishConverterToLocal {
         with(from){
             DishModelLocal(
                 dishId = id,
-                categoryId = category.id,
+                category = category,
                 description = description,
                 image = image,
                 title = title
