@@ -1,7 +1,6 @@
 package com.tirexmurina.testapp.presentation.screen
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +10,9 @@ import com.tirexmurina.testapp.BaseFragment
 import com.tirexmurina.testapp.DishTestEntity
 import com.tirexmurina.testapp.R
 import com.tirexmurina.testapp.databinding.FragmentHomeBinding
-import com.tirexmurina.testapp.presentation.BannerListAdapter
-import com.tirexmurina.testapp.presentation.CategoriesListAdapter
-import com.tirexmurina.testapp.presentation.MainListAdapter
+import com.tirexmurina.testapp.presentation.adapters.BannerListAdapter
+import com.tirexmurina.testapp.presentation.adapters.CategoriesListAdapter
+import com.tirexmurina.testapp.presentation.adapters.MainListAdapter
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
