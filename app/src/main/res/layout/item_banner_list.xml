@@ -4,25 +4,20 @@
     android:id="@+id/cat_top_item"
     android:layout_marginStart="6dp"
     android:layout_marginEnd="6dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    card_view:contentPadding="5dp"
+    android:layout_width="300dp"
+    android:layout_height="115dp"
     card_view:cardCornerRadius="10dp"
     android:backgroundTint="@color/background_light_gray"
 
     >
 
     <!--Text View over Card View-->
-    <TextView
-        android:id="@+id/textview"
-        android:layout_gravity="center"
-        android:textSize="14sp"
-        android:layout_marginStart="7dp"
-        android:layout_marginEnd="7dp"
-        android:layout_width="300dp"
-        android:layout_height="110dp"
-        android:text="Категория"
-        android:textColor="@color/black"
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/itemImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
         />
 
 </androidx.cardview.widget.CardView>
