@@ -1,7 +1,6 @@
 package com.tirexmurina.testapp.di
 
 import android.content.Context
-import androidx.room.Room
 import com.tirexmurina.testapp.data.CategoryRepositoryImpl
 import com.tirexmurina.testapp.data.DishRepositoryImpl
 import com.tirexmurina.testapp.data.local.AppDatabase
@@ -30,6 +29,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class DataModule {
 
+    // Предоставляем экземпляр Retrofit для работы с сетью.
     @Provides
     @Singleton
     fun provideRetrofit() : Retrofit {
@@ -39,44 +39,43 @@ class DataModule {
             .build()
     }
 
+    // Предоставляет сервис для получения Dish через Retrofit.
     @Provides
     @Singleton
     fun providesDishesService(retrofit: Retrofit) : DishAPI {
         return retrofit.create(DishAPI::class.java)
     }
 
+    // Предоставляет сервис для получения Category через Retrofit.
     @Provides
     @Singleton
     fun providesCategoriesService(retrofit: Retrofit) : CategoryAPI {
         return retrofit.create(CategoryAPI::class.java)
     }
 
-    /*@Provides
-    @Singleton
-    fun provideAppDatabase (@ApplicationContext app : Context) = Room.databaseBuilder(
-        app,
-        AppDatabase::class.java,
-        "app_database"
-    ).build()*/
-
+    // Предоставляет экземпляр базы данных Room.
     @Provides
     @Singleton
     fun provideAppDatabase(@ApplicationContext app: Context): AppDatabase {
         return AppDatabase.getDatabase(app)
     }
 
+    // Предоставляет DAO для работы с Category из базы данных Room.
     @Provides
     @Singleton
     fun provideCategoryDao(database: AppDatabase): CategoryDao {
         return database.categoryDao()
     }
 
+    // Предоставляет DAO для работы с Dish из базы данных Room.
     @Provides
     @Singleton
     fun provideDishDao(database: AppDatabase): DishDao {
         return database.dishDao()
     }
 
+    // Предоставляет конвертеры для преобразования данных Dish из/в форматы сетевого и локального источников.
+    // Аналогично для Category.
     @Provides
     @Singleton
     fun provideDishConverterFromRemote() : DishConverterFromRemote = DishConverterFromRemote()
@@ -102,7 +101,7 @@ class DataModule {
     fun provideCategoryConverterFromLocal() : CategoryConverterFromLocal = CategoryConverterFromLocal()
 
 
-
+    // Предоставляет репозиторий для работы с Dish.
     @Provides
     @Singleton
     fun provideDishRepository(
@@ -121,6 +120,7 @@ class DataModule {
         )
     }
 
+    // Предоставляет репозиторий для работы с Category.
     @Provides
     @Singleton
     fun provideCategoryRepository(

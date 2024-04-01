@@ -21,31 +21,33 @@ import dagger.hilt.android.components.ViewModelComponent
 @InstallIn(ViewModelComponent::class)
 class DomainModule {
 
+    // Предоставляет use case для получения всех Category.
     @Provides
-    fun provideGetAllCategoriesUseCase(categoryRepository: CategoryRepository) : IGetAllCategoriesUseCase {
+    fun provideGetAllCategoriesUseCase(categoryRepository: CategoryRepository): IGetAllCategoriesUseCase {
         return GetAllCategoriesUseCase(repository = categoryRepository)
     }
 
+    // Предоставляет use case для сохранения Category.
     @Provides
-    fun provideSaveCategoriesUseCase(categoryRepository: CategoryRepository) : ISaveCategoriesUseCase {
+    fun provideSaveCategoriesUseCase(categoryRepository: CategoryRepository): ISaveCategoriesUseCase {
         return SaveCategoriesUseCase(repository = categoryRepository)
     }
 
+    // Предоставляет use case для получения всех Dish.
     @Provides
-    fun provideGetAllDishesUseCase(dishRepository: DishRepository) : IGetAllDishesUseCase {
+    fun provideGetAllDishesUseCase(dishRepository: DishRepository): IGetAllDishesUseCase {
         return GetAllDishesUseCase(repository = dishRepository)
     }
 
+    // Предоставляет use case для получения Dish по Category.
     @Provides
-    fun provideGetDishesByCategoryUseCase(dishRepository: DishRepository) : IGetDishesByCategoryUseCase {
+    fun provideGetDishesByCategoryUseCase(dishRepository: DishRepository): IGetDishesByCategoryUseCase {
         return GetDishesByCategoryUseCase(repository = dishRepository)
     }
 
+    // Предоставляет use case для сохранения Dish.
     @Provides
-    fun provideSaveDishesUseCase(dishRepository: DishRepository) : ISaveDishesUseCase {
+    fun provideSaveDishesUseCase(dishRepository: DishRepository): ISaveDishesUseCase {
         return SaveDishesUseCase(repository = dishRepository)
     }
-
-
-
 }
